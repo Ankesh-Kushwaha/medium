@@ -10,7 +10,7 @@ const app = new Hono<{  //generics defining the types of environment url;
   }
 }>()
 
-app.route('/api/v1', userRouter)
+app.route('/api/v1', userRouter) //routing in hono
 
 
 

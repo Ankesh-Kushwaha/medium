@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
-import {signIn,signUp,createBlog,updateBlog,getAllBlog,getSingleBlog} from '../controllers/mainController'
+import { signIn, signUp, createBlog, updateBlog, getAllBlog, getSingleBlog } from '../controllers/mainController'
+import { authMiddleware } from  '../middleware/auth';
 
 const userRouter = new Hono<{  //generics defining the types of environment url;
   Bindings: {
@@ -11,9 +12,11 @@ const userRouter = new Hono<{  //generics defining the types of environment url;
 
 userRouter.post('/signup', signUp);
 userRouter.post('/signin', signIn);
+
+userRouter.use(authMiddleware); //protect the route beyond this 
 userRouter.post('/blog',createBlog);
-userRouter.put('/blog:id',updateBlog);
-userRouter.get('/get:id',getSingleBlog);
+userRouter.put('/blog/:id',updateBlog);
+userRouter.get('/get/:id',getSingleBlog);
 userRouter.get('/bulk',getAllBlog);
 
 export default userRouter;
