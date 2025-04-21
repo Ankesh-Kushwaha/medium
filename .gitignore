@@ -1,3 +1,2 @@
-backend/.env
 backend/wrangler.jsonc
-backend/src
+backend/.env
