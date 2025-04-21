@@ -63,6 +63,7 @@ const Auth = ({ type }: { type: "signin" | "signup" }) => {
         </button>
       </div>
     </div>
+    
   );
 };
 
