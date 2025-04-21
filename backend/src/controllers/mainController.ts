@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign } from 'hono/jwt'
 import bcrypt from 'bcryptjs'
+import {signinInput,signupInput,createBlogInput,blogUpdate} from '@heisenberg_11/medium-common'
 
 
 
@@ -14,7 +15,13 @@ const signUp = async (c:any) => {
       const body = await c.req.json();
       //body should be sanatize here we need zod validation
       //{ "email":string,"password":string}
-    
+      const success = signupInput.safeParse(body);
+      if (!success) {
+        return c.json({
+          success: false,
+          message: "zod validation error",
+          },402)
+      }
       const user = await prisma.user.findUnique({
         where: {
           email: body.email,
@@ -66,6 +73,14 @@ const signIn = async (c:any) => {
 
     try {
       const body = await c.req.json()
+      const success = signinInput.safeParse(body);
+      if (!success) {
+        return c.json({
+          success: false,
+          message:"zod validation error"
+         },402)
+      }
+      
 
       const user = await prisma.user.findUnique({
         where: {
@@ -107,6 +122,14 @@ const createBlog = async (c: any) => {
 
     const user = await c.get('user'); // assuming user has { id, name, email, ... }
     const body = await c.req.json(); // ← correctly parse the request body
+
+    const success = createBlogInput.safeParse(body);
+    if (!success) {
+      return c.json({
+        success: false,
+        message:"zod validation error"
+      })
+    }
 
     if (!body || !body.title || !body.content) {
       return c.json({
@@ -151,6 +174,15 @@ const updateBlog = async (c: any) => {
     const body = await c.req.json();
     const postId = c.req.param('id');
     const user = c.get('user');
+
+    const success = blogUpdate.safeParse(body);
+    if (!success) {
+      return c.json({
+        success: false,
+        message: "zod validation error"
+      })
+    }
+
 
     if (!body || !postId) {
       return c.json({
