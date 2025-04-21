@@ -12,6 +12,8 @@ const signUp = async (c:any) => {
     
     try {
       const body = await c.req.json();
+      //body should be sanatize here we need zod validation
+      //{ "email":string,"password":string}
     
       const user = await prisma.user.findUnique({
         where: {
