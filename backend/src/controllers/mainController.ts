@@ -229,6 +229,16 @@ const getSingleBlog = async (c:any) => {
     const post = await prisma.post.findUnique({
       where: {
         id: postid
+      },
+      select: {
+        title: true,
+        content: true,
+        id: true,
+        author: {
+          select: {
+             name:true,
+           }
+        }
       }
     });
 
@@ -259,7 +269,18 @@ const getAllBlog = async (c: any) => {
       datasourceUrl: c.env.DATABASE_URL
     }).$extends(withAccelerate());
     
-    const posts = await prisma.post.findMany();
+    const posts = await prisma.post.findMany({
+      select: {
+        content: true,
+        title: true,
+        id: true,
+        author: {
+          select: {
+            name:true
+          }
+        }
+      }
+    });
     return c.json({
       success: true,
       message: "all post fetched successfully",

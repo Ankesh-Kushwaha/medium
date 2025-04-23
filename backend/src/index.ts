@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import userRouter from './routes/routes'
+import {cors} from 'hono/cors'
 
 
 const app = new Hono<{  //generics defining the types of environment url;
@@ -9,7 +10,7 @@ const app = new Hono<{  //generics defining the types of environment url;
     JWT_SECRET:string
   }
 }>()
-
+app.use('/*', cors());
 app.route('/api/v1', userRouter) //routing in hono
 
 
