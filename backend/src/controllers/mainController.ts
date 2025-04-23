@@ -296,11 +296,34 @@ const getAllBlog = async (c: any) => {
   }
 }
 
+const deleteAll = async (c: any)=>{
+  try {
+    const prisma = new PrismaClient({
+      datasourceUrl: c.env.DATABASE_URL
+    }).$extends(withAccelerate());
+     
+    await prisma.post.deleteMany();
+    await prisma.user.deleteMany();
+    return c.json({
+      success: true,
+      message: "data deleted successfully"
+    }, 200);
+  }
+  catch (err:any) {
+    return c.json({
+      success: false,
+      message: "error while deleting",
+      error:err.message
+   },500)
+  }
+}
+
 export {
   signIn,
   signUp,
   createBlog,
   updateBlog,
   getAllBlog,
-  getSingleBlog
+  getSingleBlog,
+  deleteAll
 }

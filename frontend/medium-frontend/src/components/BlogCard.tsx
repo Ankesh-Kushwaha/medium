@@ -20,7 +20,7 @@ const BlogCard = (
 ) => {
 
   return (
-    <Link to={`/blog/:${id}`}>
+    <Link to={`/blog/${id}`}>
     <div className='m-3 border-b-2  border-b-slate-300 pb-2 mb-2 cursor-pointer'>
       <div className='flex justify-start gap-1'>
         <Avatar name={authorName} />

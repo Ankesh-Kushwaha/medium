@@ -29,7 +29,6 @@ export const useBlogs = () => {
             toast.success(res.data.message);
     }
           catch (err) {
-            toast.error('ankesjmckmdkmck')
         toast.error(err instanceof Error ? err.message : "An unexpected error occurred")
     }
   }
@@ -46,19 +45,19 @@ export const useBlogs = () => {
 
 
 
-export const useBlog = ({id}:{id:string}) => {
+export const useBlog = ({ id }: { id: string }) => {
+//  console.log(id);
   const [loading, setloading] = useState(true);
-  const [blog, setBlog] = useState<Blogs | null>(null);
+  const [blog, setBlog] = useState<Blogs |null>(null);
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(`https://backend.ankeshkush9651.workers.dev/api/v1/blog/${id}`, {
+      const res = await axios.get(` https://backend.ankeshkush9651.workers.dev/api/v1/get/${id}`, {
         headers: {
           "Authorization": localStorage.getItem('token')
         }
       });
-      console.log(res.data.blog);
-      setBlog(res.data.blog);
+      setBlog(res.data.bolg);
       setloading(false);
       toast.success(res.data.message);
     } catch (err) {

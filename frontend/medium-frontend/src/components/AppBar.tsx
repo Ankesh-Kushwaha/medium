@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import {Link} from 'react-router-dom'
 
 const AppBar: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -31,9 +32,12 @@ const AppBar: React.FC = () => {
 
       {/* Right Actions */}
       <div className="flex items-center gap-4 relative" ref={dropdownRef}>
-        <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
+        <Link to={'/writeblog'}>
+             <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
           Write
         </button>
+        </Link>
+     
          <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
           Publish
         </button>
