@@ -2,6 +2,7 @@ import React from 'react'
 import { useBlog } from '../hooks'
 import { useParams } from 'react-router-dom'
 import FullBlog from '../components/FullBolg'
+import FullBlogSkeleton from '../components/FullBlogSkeleton'
 
 const Blog = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const Blog = () => {
   //console.log(blog);
   
   if (loading) {
-     return <div>Loading....</div>
+     return <div><FullBlogSkeleton/></div>
   }
  
 
