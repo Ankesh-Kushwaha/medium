@@ -6,7 +6,9 @@ const MainHeader: React.FC = () => {
     <div className="w-full flex justify-between items-center px-8 py-3 border-b border-slate-900 shadow-sm bg-transparent backdrop-blur-sm">
       
       {/* Logo */}
-      <div className="text-2xl font-bold text-gray-800 cursor-pointer">ShareYourThought</div>
+      <div className="text-2xl font-bold text-gray-800 cursor-pointer">
+          ShareYourThought
+      </div>
 
       {/* Right Actions */}
       <div className="flex items-center gap-4 relative" >
