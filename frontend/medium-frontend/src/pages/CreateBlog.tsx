@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// @ts-expect-error
 import CreateAppBar from '../components/createAppBar'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

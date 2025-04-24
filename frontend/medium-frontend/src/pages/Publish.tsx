@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// @ts-expect-error
 import CreateAppBar from '../components/createAppBar'
 import { useParams, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'

@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import { signinInput } from '@heisenberg_11/medium-common'
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import InputLabel from '../components/InputLabel'
 import axios from 'axios'
 import {toast} from 'react-toastify'

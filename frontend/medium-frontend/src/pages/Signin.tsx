@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AuthSignIn from '../components/AuthSignIn';
 import Quote from '../components/Quote';
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import BlogCard from '../components/BlogCard';
 import AppBar from '../components/AppBar'
 import { useBlogs } from '../hooks/index';
@@ -6,7 +5,6 @@ import BlogCardSkeleton from '../components/BlogCardSkeleton';
  
 const Blogs = () => {
   const { loading, blogs } = useBlogs();
-  const size = blogs.length;
   
   if (loading) {
     return <div>
