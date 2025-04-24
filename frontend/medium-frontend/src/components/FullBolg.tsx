@@ -1,13 +1,14 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 interface BlogType{
   title: string,
   content: string,
+  id:string,
   author: string,
   postedOn:string
 }
 
-const FullBolg = ({title,content,author, postedOn}:BlogType) => {
+const FullBolg = ({title,content,author,id, postedOn}:BlogType) => {
   return (
     <div className='flex flex-col sm:flex-row gap-3 m-2 p-3 border-b-slate border-b-2'>
       {/* design left side of the full blog */}
@@ -17,7 +18,7 @@ const FullBolg = ({title,content,author, postedOn}:BlogType) => {
         </div>
         <div className='font-extralight text-2xl text-shadow-gray-700 '>
          <span className='font-semibold font-serif text-blue-900'>Posted On:</span> {postedOn}
-        </div>
+        </div> 
       <div className="font-serif text-lg leading-relaxed text-slate-800 max-w-3xl mx-auto space-y-4">
           {content.split('\n').map((para, idx) => (
             <p key={idx}>{para}</p>
@@ -34,6 +35,11 @@ const FullBolg = ({title,content,author, postedOn}:BlogType) => {
         <div className='font-semibold text-2xl text-emerald-800'>
           {author}
         </div>
+          <Link to={`/update/${id}`}>
+         <button className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-green-700 font-medium">
+          update
+          </button>
+        </Link>
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ const Home = () => {
   return (
        <div >
         <MainHeader/>
-      <img className='w-screen h-screen object-cover' src="https://cdn.dribbble.com/userupload/36663893/file/original-edbbc0929881fbf5e5a3cf23594f3897.jpg?resize=1504x846&vertical=center" alt="" />
+      <img className='w-screen h-screen object-cover' src="https://img.freepik.com/premium-photo/girl-write-open-white-book-accounting-minimal-clean-light-blue-desk-with-laptop-accessories-copy-space-flat-lay-top-view-mock-up_315337-7591.jpg?w=1380" alt="" />
         Home
        </div>
   )

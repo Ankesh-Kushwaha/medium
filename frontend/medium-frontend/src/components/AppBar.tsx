@@ -37,14 +37,6 @@ const AppBar: React.FC = () => {
           Write
         </button>
         </Link>
-     
-         <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
-          Publish
-        </button>
-         <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
-          Update
-        </button>
-
         {/* Avatar */}
         <div
           onClick={() => setDropdownOpen(!dropdownOpen)}

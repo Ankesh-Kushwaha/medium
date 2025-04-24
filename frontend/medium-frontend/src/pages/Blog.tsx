@@ -19,7 +19,8 @@ const Blog = () => {
     <div>
       <FullBlog title={blog ? blog.title :" No title"}
         content={blog ? blog.content :"No content"}
-        author={blog ? blog.author.name :"anonyms user"}
+        author={blog ? blog.author.name : "anonyms user"}
+        id={id || "unknown-id"}
         postedOn={new Date(Date.now()).toLocaleString()}
       />
 

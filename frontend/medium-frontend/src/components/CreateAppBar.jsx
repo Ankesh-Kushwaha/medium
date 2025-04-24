@@ -15,12 +15,7 @@ const CreateAppBar = () => {
         ShareYourThought
       </div>
 
-      {/* Right Actions */}
       <div className="flex items-center gap-4 relative">
-        <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium">
-          Update
-        </button>
-
         {/* Avatar */}
         <div
           className="w-9 h-9 rounded-full bg-gray-300 flex items-center justify-center text-gray-800 font-semibold cursor-pointer"
