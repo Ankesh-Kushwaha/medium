@@ -3,13 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build:win": "node_modules\\.bin\\tsc.cmd -b && vite build",
-    "build": "npx tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+ "scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
+},
  "dependencies": {
   "@heisenberg_11/medium-common": "^1.0.0",
   "@tailwindcss/typography": "^0.5.16",
